@@ -109,16 +109,17 @@ def bookingConfirmation(request):
 
 
 #to check the number of visits to a particular hotel
-def viewVisits(request):
+def viewVisit(request):
     hotelList = Hotel.objects.all()
-    return render(request,'templates/booking/viewVisit.html',{'hotelList': hotelList})
+    return render(request,'booking/viewVisit.html',{'hotelList': hotelList})
 
 #function provides the data for displaying the draft Booking Functionality
 def draftBooking(request):
-    print(request.session)
-    bookingListObj = list(Booking.objects.filter(status=Status.objects.get(status="DROPPED"))
-                          .filter(c_id=request.session))
-    print(bookingListObj)
-    if len(bookingListObj) == 0:
-        return HttpResponse("No Draft Bookings To Display")
-    return render(request, 'booking/draftBooking.html',{'bookingListObj':bookingListObj})
+    bookingList = Booking.objects.all()
+    # print(request.session)
+    # bookingListObj = list(Booking.objects.filter(status=Status.objects.get(status="DROPPED"))
+    #                       .filter(c_id=request.session))
+    # print(bookingListObj)
+    # if len(bookingListObj) == 0:
+    #     return HttpResponse("No Draft Bookings To Display")
+    return render(request, 'booking/draftBooking.html',{'bookingListObj':bookingList})
