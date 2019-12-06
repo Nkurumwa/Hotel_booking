@@ -1,6 +1,11 @@
+{% extends 'booking/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{{ block.super }}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <form action="{% url 'Bookings:registration' %}" method="post">
     {% csrf_token %}
+    <div text-align="center">
     <p>{{ form.name.label }} {{ form.name }} </p>
     <p>{{ form.contact.label }} {{ form.contact }}</p>
     <p>{{ form.email.label }} {{ form.email }}</p>
@@ -9,4 +14,10 @@
     <p>{{ form.cpassword.label }} {{ form.cpassword }} {{ form.cpassword.errors }}</p>
     <input type="submit" value="Submit" />
     <p><a href="/booking">Back</a></p>
+</div>
+{% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
 </form>
+{% endblock %}

@@ -1,3 +1,7 @@
+{% extends 'booking/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{{ block.super }}
 <html>
 	<head>
 		<title>Hotels</title>
@@ -15,6 +19,7 @@
             {% endfor %}
         </table>
     <p><a href="/booking">Back</a></p>
-    <p><a href="/booking/login">Click to login</a></p>
+    <p><a href="/booking/login">Login</a></p>
 	</body>
 </html>
+{% endblock %}

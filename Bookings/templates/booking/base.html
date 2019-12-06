@@ -1,0 +1,26 @@
+{% load bootstrap4 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  {% block content %} {%endblock%}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+  {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src="{% static 'js/award.js' %}"></script>
+  {% block javascript %}
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js">
+  </script>
+  <script src="https://use.fontawesome.com/191e478c5e.js"></script>
+  {% endblock %}
+</body>
+
+</html>

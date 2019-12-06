@@ -1,4 +1,7 @@
-
+{% extends 'booking/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{{ block.super }}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <b> LOGIN PAGE</b>
 <form action="{% url 'Bookings:dashboard' %}" method="post">
@@ -11,3 +14,4 @@
     <p><a href="/booking">Back</a></p>
     <p><a href="/booking/register">Register</a></p>
 </form>
+{% endblock %}

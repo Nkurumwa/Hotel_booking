@@ -32,7 +32,7 @@ def registration(request):
         customerObj = Customer(name=request.POST['name'],contact=request.POST['contact'],
                                password=request.POST['password'],email=request.POST['email'],
                                address=request.POST['address'])
-        customerObj.save()
+        # customerObj.save()
     return render(request, 'booking/dashboard.html')
 
 #User Dashboard helps to store and validate the data received from the Registration and Login Forms
@@ -87,7 +87,7 @@ def bookingResult(request):
 def bookingConfirmation(request):
     request.session['hotelName']=request.POST['hotelName']
     hotelObj = Hotel.objects.get(name=request.session['hotelName'])
-    customerObj = Customer.objects.get(pk=request.session['customerPk'])
+    customerObj = Customer.objects.get(request.session)
     totalCount = hotelObj.visitorCount + 1
     hotelObj.visitorCount = totalCount
     hotelObj.save()
@@ -111,13 +111,13 @@ def bookingConfirmation(request):
 #to check the number of visits to a particular hotel
 def viewVisits(request):
     hotelList = Hotel.objects.all()
-    return render(request,'booking/viewVisit.html',{'hotelList': hotelList})
+    return render(request,'templates/booking/viewVisit.html',{'hotelList': hotelList})
 
 #function provides the data for displaying the draft Booking Functionality
 def draftBooking(request):
-    print(request.session['customerPk'])
+    print(request.session)
     bookingListObj = list(Booking.objects.filter(status=Status.objects.get(status="DROPPED"))
-                          .filter(c_id=request.session['customerPk']))
+                          .filter(c_id=request.session))
     print(bookingListObj)
     if len(bookingListObj) == 0:
         return HttpResponse("No Draft Bookings To Display")
