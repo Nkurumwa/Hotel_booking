@@ -20,6 +20,6 @@ This is a hotel booking website where clients register, login, book a hotel and 
 - The application is not fully functioning especially save.
 
 ## BDD
-|-------------|------------|--------------|
 |User register| User logs in| Books a hotel|
+|-------------|------------|------------------|
 |User opens the site| Navigates to hotel pricing and visits| User decides to login or go back|
