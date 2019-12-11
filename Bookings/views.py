@@ -32,7 +32,7 @@ def registration(request):
         customerObj = Customer(name=request.POST['name'],contact=request.POST['contact'],
                                password=request.POST['password'],email=request.POST['email'],
                                address=request.POST['address'])
-        # customerObj.save()
+        customerObj.save()
     return render(request, 'booking/dashboard.html')
 
 #User Dashboard helps to store and validate the data received from the Registration and Login Forms
@@ -116,7 +116,7 @@ def viewVisit(request):
 #function provides the data for displaying the draft Booking Functionality
 def draftBooking(request):
     bookingList = Booking.objects.all()
-    # print(request.session)
+    print(request.session)
     # bookingListObj = list(Booking.objects.filter(status=Status.objects.get(status="DROPPED"))
     #                       .filter(c_id=request.session))
     # print(bookingListObj)
