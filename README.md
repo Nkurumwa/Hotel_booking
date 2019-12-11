@@ -19,6 +19,9 @@ This is a hotel booking website where clients register, login, book a hotel and 
 ## Known bugs
 - The application is not fully functioning especially save.
 
+## Note
+- Still working on save and book codes.
+
 ## BDD
 |User register| User logs in| Books a hotel|
 |-------------|------------|------------------|
